@@ -1,3 +1,4 @@
+set nocompatible
 set tabstop=4 softtabstop=4
 set expandtab
 set smartindent
@@ -14,3 +15,16 @@ set incsearch
 set scrolloff=8
 set signcolumn=yes
 set shell=pwsh
+set belloff=all
+
+syntax on
+
+"   Plugins
+
+call plug#begin('~/vimfiles/plugged')
+Plug 'morhetz/gruvbox'
+call plug#end()
+
+set t_Co=256 "  to enable 256 colors
+colorscheme gruvbox
+
