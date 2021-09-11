@@ -16,15 +16,22 @@ set scrolloff=8
 set signcolumn=yes
 set shell=pwsh
 set belloff=all
+set path+=**    "   Allows for easy file searching within the working directory and its sub-directories
+set encoding=utf-8
+set wildmenu
 
 syntax on
 
 "   Plugins
 
 call plug#begin('~/vimfiles/plugged')
-Plug 'morhetz/gruvbox'
+
+Plug 'nanotech/jellybeans.vim'
+
 call plug#end()
 
 set t_Co=256 "  to enable 256 colors
-colorscheme gruvbox
+colorscheme jellybeans
+
+filetype plugin on
 
