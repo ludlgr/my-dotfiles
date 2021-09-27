@@ -1,6 +1,7 @@
 set nocompatible
 set tabstop=4 softtabstop=4
 set expandtab
+set autoindent
 set smartindent
 set relativenumber
 set nu
@@ -24,8 +25,6 @@ set noshowmode
 set t_Co=256 "  to enable 256 colors
 set splitbelow splitright 
 
-syntax on
-
 
 "   Plugin installation
 
@@ -36,17 +35,21 @@ Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'ycm-core/YouCompleteMe'
+Plug 'ajmwagar/vim-deus'
+Plug 'vim-scripts/indentpython.vim'
 
 call plug#end()
 
-colorscheme jellybeans
+syntax enable
+colorscheme apprentice
 
 let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
+      \ 'colorscheme': 'apprentice',
       \ }
 
-" Start NERDTree and leave the cursor in it.
-autocmd VimEnter * NERDTree
+
+" Start NERDTree and put the cursor back in the other window.
+autocmd VimEnter * NERDTree | wincmd p
 " Close the tab if NERDTree is the only window remaining in it.
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 nnoremap <C-t> :NERDTreeToggle<CR>
