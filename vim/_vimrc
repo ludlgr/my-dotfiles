@@ -37,6 +37,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'ajmwagar/vim-deus'
 Plug 'vim-scripts/indentpython.vim'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -48,8 +49,8 @@ let g:lightline = {
       \ }
 
 
-" Start NERDTree and put the cursor back in the other window.
-autocmd VimEnter * NERDTree | wincmd p
+" Start NERDTree and leave the cursor in it.
+autocmd VimEnter * NERDTree
 " Close the tab if NERDTree is the only window remaining in it.
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 nnoremap <C-t> :NERDTreeToggle<CR>
@@ -61,3 +62,5 @@ nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 nnoremap <C-H> <C-W>h
+
+" GitGutter settings
